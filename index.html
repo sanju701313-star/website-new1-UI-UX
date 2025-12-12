@@ -250,46 +250,48 @@
 <body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden">
 
     <!-- Floating Navigation (Inside Hero) -->
-    <nav id="floating-navbar" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl floating-nav rounded-2xl transition-all duration-500">
-        <div class="px-4 lg:px-8 py-2">
-            <div class="flex justify-between items-center h-24 md:h-28">
+    <nav id="floating-navbar" class="fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] md:w-[95%] max-w-6xl floating-nav rounded-xl md:rounded-2xl transition-all duration-500">
+        <div class="px-3 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14 md:h-20">
                 <!-- Logo Section -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="transition-transform duration-300 group-hover:scale-110 flex items-center">
-                        <img src="logo.png" onerror="this.style.display='none'" alt="Lumin Logo" class="h-20 md:h-28 w-auto object-contain scale-150 origin-left">
+                    <div class="transition-transform duration-300 group-hover:scale-105 flex items-center">
+                        <img src="logo.png" onerror="this.style.display='none'" alt="Lumin Logo" class="h-10 md:h-16 lg:h-20 w-auto object-contain">
                     </div>
                 </div>
                 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors">Home</a>
-                    <a href="#about" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors">About</a>
-                    <a href="#services" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors">Services</a>
-                    <a href="#why-us" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors">Why Us</a>
-                    <a href="#clients" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors">Clients</a>
-                    <a href="#contact" class="px-6 py-2.5 rounded-full bg-lumin-blue text-white font-semibold hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5">
-                        Contact Us
-                    </a>
+                <!-- Mobile Quick Links + Menu Button -->
+                <div class="flex md:hidden items-center gap-2">
+                    <a href="#about" class="px-3 py-1.5 text-xs font-semibold text-gray-700 hover:text-lumin-blue transition-colors">About</a>
+                    <a href="#services" class="px-3 py-1.5 text-xs font-semibold text-gray-700 hover:text-lumin-blue transition-colors">Services</a>
+                    <button id="mobile-menu-btn" class="p-1.5 rounded-md focus:outline-none transition-transform active:scale-95 text-gray-700">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 rounded-md focus:outline-none transition-transform active:scale-95 text-gray-700">
-                        <i data-lucide="menu" class="w-7 h-7"></i>
-                    </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                    <a href="#home" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Home</a>
+                    <a href="#about" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">About</a>
+                    <a href="#services" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Services</a>
+                    <a href="#why-us" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Why Us</a>
+                    <a href="#clients" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Clients</a>
+                    <a href="#contact" class="px-5 lg:px-6 py-2 lg:py-2.5 rounded-full bg-lumin-blue text-white font-semibold hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 text-sm lg:text-base">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white rounded-b-2xl border-t border-gray-100">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Home</a>
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">About</a>
-                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Services</a>
-                <a href="#why-us" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Why Us</a>
-                <a href="#clients" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Clients</a>
-                <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium bg-lumin-blue text-white text-center mt-4 shadow-md">Contact Us</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white rounded-b-xl border-t border-gray-100">
+            <div class="px-3 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Home</a>
+                <a href="#about" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">About</a>
+                <a href="#services" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Services</a>
+                <a href="#why-us" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Why Us</a>
+                <a href="#clients" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Clients</a>
+                <a href="#contact" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-lumin-blue text-white text-center mt-3 shadow-md">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -316,7 +318,7 @@
     </nav>
 
     <!-- Hero Section with Three.js Animated Background -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+    <section id="home" class="relative pt-24 md:pt-32 pb-16 md:pb-20 lg:pt-44 lg:pb-32 overflow-hidden min-h-screen flex items-center">
         <!-- Three.js Canvas Container -->
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
         
@@ -1145,7 +1147,7 @@ Lumin Consultancy | Accreditation & Quality Excellence
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
-            menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-7 h-7"></i>`;
+            menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
             lucide.createIcons();
         });
 
