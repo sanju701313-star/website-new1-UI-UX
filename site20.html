@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumin Consultancy | Accreditation & Quality Excellence</title>
+    <!-- ANTI-INSPECTION SCRIPT & THEME LOADER -->
+    <script>
+        (() => {
+            // Apply theme from localStorage immediately to prevent color flashing
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Anti-inspection logic
+            const blockAndTrigger = (e) => {
+                e.preventDefault();
+                if (typeof triggerBlocker === 'function') {
+                    triggerBlocker();
+                }
+            };
+            document.addEventListener('contextmenu', blockAndTrigger, { capture: true });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) || (e.ctrlKey && e.key.toUpperCase() === 'U')) {
+                    blockAndTrigger(e);
+                }
+            }, { capture: true });
+        })();
+    </script>
+    <!--
+    Copyright © 2019 Lumin Consultancy. 
+    All Rights Reserved.
+
+    This website, including all HTML, CSS, JavaScript, design, layout, content, 
+    animations, branding elements, and UI components is proprietary and confidential.
+
+    Unauthorized copying, reproduction, modification, distribution, or use in any 
+    form is strictly prohibited without explicit written permission from 
+    Lumin Consultancy.
+    
+    This code is submitted and registered as original work under Lumin Consultancy 
+    and is legally protected by copyright laws.
+    
+    Developer: Sanjay Reddy
+    Company: Lumin Consultancy
+-->
+    <meta name="description" content="Your trusted partner in NABL Accreditation, ISO 17025 Compliance, and Quality Excellence.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Custom Tailwind Configuration for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        lumin: {
+                            blue: '#003366',    // Deep Royal Blue
+                            light: '#0055A4',   // Brighter Blue
+                            gold: '#C5A059',    // Gold Accent (from logo)
+                            red: '#D32F2F',     // Red Accent (from logo)
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+        .text-lumin-gold { color:#C5A059; }
+.text-lumin-red { color:#D32F2F; }
+
+        .text-gradient-yellow {
+            background: linear-gradient(90deg, #ffcc00, #ffdd55);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .text-gradient-red {
+            background: linear-gradient(90deg, #ff4444, #cc0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            filter: drop-shadow(0px 0px 3px rgba(255, 0, 0, 0.5));
+        }
+
+        /* SHINE Animation Keyframe */
+        @keyframes shineMove {
+            0% {
+                background-position: 200% center;
+            }
+            100% {
+                background-position: -200% center;
+            }
+        }
+
+        /* Yellow Shining Gradient */
+        .shine-yellow {
+            background: linear-gradient(
+                90deg,
+                #ffcc00,
+                #ffee66,
+                #ffffff,
+                #ffcc00
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineMove 2.5s linear infinite;
+            font-weight: 900;
+        }
+
+        /* Red Shining Gradient */
+        .shine-red {
+            background: linear-gradient(
+                90deg,
+                #ff3333,
+                #ff7777,
+                #ffffff,
+                #ff3333
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineMove 2.5s linear infinite;
+            font-weight: 900;
+            filter: drop-shadow(0px 0px 5px rgba(255, 0, 0, 0.6));
+        }
+
+        /* Floating Navbar */
+        .floating-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-nav.scrolled {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Sticky nav that appears on scroll */
+        .sticky-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Three.js Canvas */
+        #hero-canvas {
+            background: linear-gradient(135deg, #0c1929 0%, #0a1525 50%, #071018 100%);
+        }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover Underline Animation */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #003366;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Staggered delays for grids */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Success Modal */
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Counter animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Stats background pattern */
+        .stats-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23003366' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased overflow-x-hidden">
+
+    <!-- Floating Navigation (Inside Hero) -->
+    <nav id="floating-navbar" class="fixed top-3 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] md:w-[95%] max-w-6xl floating-nav rounded-xl md:rounded-2xl transition-all duration-500">
+        <div class="px-3 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14 md:h-20">
+                <!-- Logo Section -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="transition-transform duration-300 group-hover:scale-105 flex items-center">
+                        <img src="logo.png" onerror="this.style.display='none'" alt="Lumin Logo" class="h-10 md:h-16 lg:h-20 w-auto object-contain">
+                    </div>
+                </div>
+                
+                <!-- Mobile Quick Links + Menu Button -->
+                <div class="flex md:hidden items-center gap-2">
+                    <a href="#about" class="px-3 py-1.5 text-xs font-semibold text-gray-700 hover:text-lumin-blue transition-colors">About</a>
+                    <a href="#services" class="px-3 py-1.5 text-xs font-semibold text-gray-700 hover:text-lumin-blue transition-colors">Services</a>
+                    <button id="mobile-menu-btn" class="p-1.5 rounded-md focus:outline-none transition-transform active:scale-95 text-gray-700">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                    <a href="#home" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Home</a>
+                    <a href="#about" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">About</a>
+                    <a href="#services" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Services</a>
+                    <a href="#why-us" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Why Us</a>
+                    <a href="#clients" class="nav-link font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm lg:text-base">Clients</a>
+                    <a href="#contact" class="px-5 lg:px-6 py-2 lg:py-2.5 rounded-full bg-lumin-blue text-white font-semibold hover:bg-blue-800 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5 text-sm lg:text-base">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white rounded-b-xl border-t border-gray-100">
+            <div class="px-3 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Home</a>
+                <a href="#about" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">About</a>
+                <a href="#services" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Services</a>
+                <a href="#why-us" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Why Us</a>
+                <a href="#clients" class="block px-3 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-50 hover:text-blue-600">Clients</a>
+                <a href="#contact" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-lumin-blue text-white text-center mt-3 shadow-md">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sticky Navigation (Appears on Scroll) -->
+    <nav id="sticky-navbar" class="fixed top-0 left-0 right-0 z-40 sticky-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <img src="logo.png" onerror="this.style.display='none'" alt="Lumin Logo" class="h-10 w-auto object-contain">
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#home" class="font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm">Home</a>
+                    <a href="#about" class="font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm">About</a>
+                    <a href="#services" class="font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm">Services</a>
+                    <a href="#why-us" class="font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm">Why Us</a>
+                    <a href="#clients" class="font-medium text-gray-700 hover:text-lumin-blue transition-colors text-sm">Clients</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full bg-lumin-blue text-white font-semibold hover:bg-blue-800 transition-all text-sm">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Three.js Animated Background -->
+    <section id="home" class="relative pt-24 md:pt-32 pb-16 md:pb-20 lg:pt-44 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Three.js Canvas Container -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        
+        <!-- Gradient Overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <div class="animate-fade-in-up">
+                <span class="inline-block py-1 px-4 rounded-full bg-white/10 border border-white/20 text-blue-200 text-sm font-semibold mb-6 backdrop-blur-sm shadow-inner">
+                    Established 2019
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 leading-tight drop-shadow-lg">
+                    Lighting Your Path to <br class="hidden md:block"/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 animate-pulse">Accreditation Success</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-blue-100 mb-10 leading-relaxed font-light">
+                    Your trusted partner in Accreditation, Compliance, and Quality Excellence. We guide laboratories to achieve global standards with clarity and confidence.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                    <!-- CTA Button with Shimmer -->
+                    <a href="#contact" class="group relative px-8 py-4 rounded-full bg-white text-lumin-blue font-bold text-lg hover:bg-blue-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden">
+                        <span class="relative z-10 flex items-center gap-2">Get Accredited <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i></span>
+                    </a>
+                    <a href="#services" class="px-8 py-4 rounded-full bg-transparent border-2 border-white/30 text-white font-semibold text-lg hover:bg-white/10 hover:border-white transition-all backdrop-blur-sm">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow text-white/50 cursor-pointer hover:text-white transition-colors">
+            <a href="#stats"><i data-lucide="chevron-down" class="w-10 h-10"></i></a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 bg-white stats-pattern relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <span class="text-lumin-blue font-bold tracking-widest text-sm uppercase">Company Success</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Some interesting insights about our consulting services</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Stat 1 -->
+                <div class="text-center reveal delay-100">
+                    <div class="flex items-baseline justify-center">
+                        <span class="text-5xl md:text-6xl font-bold text-lumin-blue counter" data-target="6">0</span>
+                        <span class="text-3xl md:text-4xl font-bold text-lumin-blue">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 font-medium">Years of Excellence</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="text-center reveal delay-200">
+                    <div class="flex items-baseline justify-center">
+                        <span class="text-5xl md:text-6xl font-bold text-lumin-blue counter" data-target="100">0</span>
+                        <span class="text-3xl md:text-4xl font-bold text-lumin-blue">%</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 font-medium">Client Satisfaction</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="text-center reveal delay-300">
+                    <div class="flex items-baseline justify-center">
+                        <span class="text-5xl md:text-6xl font-bold text-lumin-blue counter" data-target="100">0</span>
+                        <span class="text-3xl md:text-4xl font-bold text-lumin-blue">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 font-medium">Labs Accredited</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="text-center reveal delay-400">
+                    <div class="flex items-baseline justify-center">
+                        <span class="text-5xl md:text-6xl font-bold text-lumin-blue counter" data-target="5">0</span>
+                        <span class="text-3xl md:text-4xl font-bold text-lumin-blue"></span>
+                    </div>
+                    <p class="text-gray-600 mt-2 font-medium">Expert Consultants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
+                <div class="mb-12 lg:mb-0 reveal">
+                    <div class="inline-block px-4 py-1.5 bg-blue-50 text-lumin-blue rounded-full text-sm font-bold tracking-wide mb-6 border border-blue-100">ABOUT LUMIN CONSULTANCY</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        Simplifying Complex <br> <span class="text-lumin-blue">Compliance</span> Since 2019
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        We are a leading accreditation and quality management consulting firm specializing in guiding testing and calibration laboratories. Our mission is to deliver clarity, compliance, and confidence.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <!-- Checklist Items -->
+                        <div class="flex items-center p-3 rounded-lg hover:bg-white transition-colors group">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4 group-hover:bg-green-600 group-hover:text-white transition-all">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg group-hover:translate-x-1 transition-transform">NABL Accreditation</span>
+                        </div>
+                        <div class="flex items-center p-3 rounded-lg hover:bg-white transition-colors group">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4 group-hover:bg-green-600 group-hover:text-white transition-all">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg group-hover:translate-x-1 transition-transform">ISO/IEC 17025 Implementation</span>
+                        </div>
+                        <div class="flex items-center p-3 rounded-lg hover:bg-white transition-colors group">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4 group-hover:bg-green-600 group-hover:text-white transition-all">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg group-hover:translate-x-1 transition-transform">Quality Documentation</span>
+                        </div>
+                         <div class="flex items-center p-3 rounded-lg hover:bg-white transition-colors group">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4 group-hover:bg-green-600 group-hover:text-white transition-all">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg group-hover:translate-x-1 transition-transform">Internal Audits & Gap Assessments</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image/Graphic Area -->
+                <div class="relative reveal delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lumin-blue to-blue-400 transform rotate-3 rounded-3xl opacity-10"></div>
+                    <div class="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100 transition-transform hover:scale-[1.01] duration-500">
+                         <!-- Professional Lab Image -->
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-inner">
+                            <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=2070&auto=format&fit=crop" 
+                                 alt="Laboratory Standards" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                 loading="lazy">
+                            <!-- Overlay Text -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-lumin-blue/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                                <p class="text-sm md:text-base font-semibold drop-shadow-md">
+                                    <span class="text-blue-200">Excellence in</span> 
+                                    <span class="text-white">Lab Standards</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <p class="text-xl font-serif italic text-gray-600">"We deliver practical solutions that bring measurable improvement."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-3 animate-float">
+                        <div class="bg-yellow-100 p-2 rounded-full text-yellow-600">
+                            <i data-lucide="star" class="w-6 h-6 fill-current"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 font-semibold">Client Satisfaction</p>
+                            <p class="text-lg font-bold text-gray-900">100% Focus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Our Core Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Expert-driven, result-oriented consultancy tailored for your laboratory's success.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 border-b-4 border-lumin-blue group reveal delay-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-lumin-blue mb-6 group-hover:bg-lumin-blue group-hover:text-white transition-all duration-300 group-hover:rotate-6">
+                        <i data-lucide="award" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-lumin-blue transition-colors">NABL Accreditation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> End-to-end guidance
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Quality Manual & Procedures
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Method validation
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 border-b-4 border-lumin-blue group reveal delay-200">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-lumin-blue mb-6 group-hover:bg-lumin-blue group-hover:text-white transition-all duration-300 group-hover:rotate-6">
+                        <i data-lucide="check-circle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-lumin-blue transition-colors">ISO/IEC 17025</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Complete implementation
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Gap analysis
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Staff training
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 border-b-4 border-lumin-blue group reveal delay-300">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-lumin-blue mb-6 group-hover:bg-lumin-blue group-hover:text-white transition-all duration-300 group-hover:rotate-6">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-lumin-blue transition-colors">QMS Systems</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> SOP development
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Risk assessment
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Record control
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 border-b-4 border-lumin-blue group reveal delay-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-lumin-blue mb-6 group-hover:bg-lumin-blue group-hover:text-white transition-all duration-300 group-hover:rotate-6">
+                        <i data-lucide="book-open" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-lumin-blue transition-colors">Training Programs</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> ISO 17025 awareness
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Internal Auditor
+                        </li>
+                        <li class="flex items-start text-sm text-gray-600">
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-blue-500 mt-0.5 mr-2 shrink-0"></i> Uncertainty measurement
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-24 bg-lumin-blue text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex lg:items-center lg:justify-between gap-12">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Why Choose <br><span class="text-blue-400">Lumin Consultancy?</span></h2>
+                    <p class="text-blue-100 text-lg mb-8 leading-relaxed">
+                        We don't just advise; we partner with you until you achieve your accreditation goals. Our track record speaks for itself.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center bg-blue-800/50 p-4 rounded-xl border border-blue-700 hover:bg-blue-800 transition-colors group">
+                            <div class="relative w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                1
+                                <div class="absolute inset-0 rounded-full border border-white opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                            </div>
+                            <p class="ml-5 font-medium text-blue-50 text-lg">Experienced consultants trained in standards</p>
+                        </div>
+                        <div class="flex items-center bg-blue-800/50 p-4 rounded-xl border border-blue-700 hover:bg-blue-800 transition-colors group">
+                            <div class="relative w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                2
+                                <div class="absolute inset-0 rounded-full border border-white opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                            </div>
+                            <p class="ml-5 font-medium text-blue-50 text-lg">Practical solutions tailored for your lab</p>
+                        </div>
+                        <div class="flex items-center bg-blue-800/50 p-4 rounded-xl border border-blue-700 hover:bg-blue-800 transition-colors group">
+                             <div class="relative w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">
+                                3
+                                <div class="absolute inset-0 rounded-full border border-white opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                            </div>
+                            <p class="ml-5 font-medium text-blue-50 text-lg">Timely support until accreditation is achieved</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Card -->
+                <div class="lg:w-5/12 reveal delay-200">
+                    <div class="bg-white text-gray-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400 opacity-20 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+                        <h3 class="text-2xl font-bold mb-4 text-lumin-blue">Start Your Journey Today</h3>
+                        <p class="text-gray-600 mb-8">Ready to improve your laboratory standards? Contact us for a free, no-obligation consultation.</p>
+                        <a href="#contact" class="block w-full text-center py-4 bg-lumin-blue text-white rounded-xl font-bold hover:bg-blue-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Get a Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Valued Clients</h2>
+                <div class="h-1 w-20 bg-lumin-blue mx-auto rounded-full"></div>
+                <p class="text-lg text-gray-600 mt-6">
+                    Proud to support prestigious organisations across industries.
+                </p>
+            </div>
+
+            <!-- Client Logos Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Client 1 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="himalaya.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Himalaya Wellness" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">himalaya.png missing</span>
+                    </div>
+                    <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">Himalaya Wellness</p>
+                </div>
+
+                <!-- Client 2 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-100 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="eptri.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="EPTRI" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">eptri.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">EPTRI</p>
+                </div>
+
+                <!-- Client 3 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-200 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="bgr.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="BGR Mining" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">bgr.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">BGR Mining</p>
+                </div>
+
+                <!-- Client 4 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="bs-envitech.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="BS Envitech" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">bs-envitech.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">BS Envitech</p>
+                </div>
+
+                <!-- Client 5 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-100 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="safran.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Safran" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">safran.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">Safran</p>
+                </div>
+
+                <!-- Client 6 -->
+                <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-200 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="azista.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Azista" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">azista.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">Azista</p>
+                </div>
+
+                 <!-- Client 7 -->
+                 <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="appcb.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="APPCB" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">appcb.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">APPCB</p>
+                </div>
+
+                 <!-- Client 8 -->
+                 <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-100 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="pvn-vet-college.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="PV Narasimha Rao Vet College" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">pvn-vet-college.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">PV Narasimha Rao Vet</p>
+                </div>
+
+                 <!-- Client 9 -->
+                 <div class="group flex flex-col items-center justify-center p-8 border border-gray-100 rounded-2xl bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 reveal delay-200 transform hover:-translate-y-1">
+                    <div class="w-full h-24 flex items-center justify-center mb-4 overflow-hidden">
+                        <img src="icar.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="ICAR" class="max-h-full max-w-full object-contain transition-all duration-500">
+                        <span class="text-xs text-gray-400 font-mono hidden">icar.png missing</span>
+                    </div>
+                     <p class="text-sm font-bold text-center text-gray-800 group-hover:text-lumin-blue transition-colors opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto">ICAR Directorate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-900 text-white py-24 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                    <p class="text-gray-400 mb-10 text-lg">
+                        Ready to start your accreditation journey? We are here to answer your questions and guide you every step of the way.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <!-- Phone / Contact Persons -->
+                        <div class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900/50 flex items-center justify-center text-blue-500 mr-5 group-hover:bg-blue-600 group-hover:text-white transition-colors flex-shrink-0">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg mb-2">Contact Persons</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <p class="text-blue-200 font-medium">CEO & Chief Consultant: SVRK Prasad</p>
+                                        <a href="tel:+917730058484" class="text-gray-300 hover:text-white transition-colors block mt-1">+91 77300 58484</a>
+                                    </div>
+                                    <div>
+                                        <p class="text-blue-200 font-medium">Proprietrix: Radhika Yalamarthy</p>
+                                        <a href="tel:+919121975353" class="text-gray-300 hover:text-white transition-colors block mt-1">+91 91219 75353</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900/50 flex items-center justify-center text-blue-500 mr-5 group-hover:bg-blue-600 group-hover:text-white transition-colors flex-shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Email</h4>
+                                <a href="mailto:ceo@luminconsultancy.in" class="text-gray-400 mt-1 block hover:text-white transition-colors">ceo@luminconsultancy.in</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="flex items-start group hover:translate-x-2 transition-transform duration-300">
+                            <div class="w-12 h-12 rounded-lg bg-blue-900/50 flex items-center justify-center text-blue-500 mr-5 group-hover:bg-blue-600 group-hover:text-white transition-colors flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Location</h4>
+                                <a href="https://www.google.com/maps/search/Flat+No.+104,+Madhavi+Towers,+Motinagar,+Hyderabad+-+500018,+Telangana/@17.4549856,78.4219423,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="text-gray-400 mt-1 block hover:text-white transition-colors">
+                                    Flat No. 104, Madhavi Towers,<br>Motinagar, Hyderabad - 500018,<br>Telangana
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 md:p-10 text-gray-800 shadow-2xl reveal delay-200">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Send us a message</h3>
+                    <!-- Form - User only sees their input, never the formatted email -->
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                            <input id="contact-name" name="name" type="text" class="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                            <input id="contact-email" name="email" type="email" class="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="your@email.com" required>
+                        </div>
+                        <div>
+    <label class="block text-sm font-semibold text-gray-700 mb-2">Mobile Number</label>
+    <input 
+        id="contact-phone" 
+        name="phone" 
+        type="tel"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        class="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-50 focus:bg-white"
+        placeholder="10-digit mobile number"
+        required>
+</div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea id="contact-message" name="message" rows="4" class="w-full px-5 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="w-full bg-lumin-blue text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <span id="btn-text">Send Message</span>
+                            <svg id="btn-loader" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Modal -->
+                <div id="success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <div class="modal-overlay absolute inset-0" onclick="closeModal()"></div>
+                    <div class="relative bg-white rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl transform transition-all animate-fade-in-up">
+                        <!-- Success Icon -->
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 text-center mb-3">Message Sent!</h3>
+                        <p class="text-gray-600 text-center mb-6">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+                        <button onclick="closeModal()" class="w-full bg-lumin-blue text-white font-bold py-3 rounded-xl hover:bg-blue-800 transition-all">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="bg-gray-950 text-gray-500 py-10 border-t border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+                flex flex-col md:flex-row items-center md:items-center
+                justify-between gap-4">
+
+        <!-- LEFT: Logo Text -->
+        <div class="text-xl font-bold">
+            <span style="color:#C5A059;">LUMIN</span>
+            <span style="color:#D32F2F;"> CONSULTANCY</span>
+        </div>
+
+        <!-- RIGHT: Copyright -->
+        <div class="text-sm font-medium text-center md:text-right">
+            &copy; 2019 Lumin Consultancy. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Three.js Professional Animated Background
+        (function initThreeJS() {
+            const canvas = document.getElementById('hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            
+            // Create subtle floating nodes
+            const nodesGeometry = new THREE.BufferGeometry();
+            const nodesCount = 150;
+            const posArray = new Float32Array(nodesCount * 3);
+            
+            for (let i = 0; i < nodesCount * 3; i += 3) {
+                posArray[i] = (Math.random() - 0.5) * 12;
+                posArray[i + 1] = (Math.random() - 0.5) * 8;
+                posArray[i + 2] = (Math.random() - 0.5) * 6 - 2;
+            }
+            
+            nodesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            
+            // Subtle node material
+            const nodesMaterial = new THREE.PointsMaterial({
+                size: 0.03,
+                color: 0x4a90d9,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+            
+            const nodesMesh = new THREE.Points(nodesGeometry, nodesMaterial);
+            scene.add(nodesMesh);
+            
+            // Create elegant connecting lines (network effect)
+            const linesGroup = new THREE.Group();
+            const positions = nodesGeometry.attributes.position.array;
+            
+            for (let i = 0; i < nodesCount; i++) {
+                const x1 = positions[i * 3];
+                const y1 = positions[i * 3 + 1];
+                const z1 = positions[i * 3 + 2];
+                
+                // Connect to nearby nodes
+                for (let j = i + 1; j < nodesCount; j++) {
+                    const x2 = positions[j * 3];
+                    const y2 = positions[j * 3 + 1];
+                    const z2 = positions[j * 3 + 2];
+                    
+                    const distance = Math.sqrt(
+                        Math.pow(x2 - x1, 2) + 
+                        Math.pow(y2 - y1, 2) + 
+                        Math.pow(z2 - z1, 2)
+                    );
+                    
+                    // Only connect close nodes
+                    if (distance < 2.5 && Math.random() > 0.7) {
+                        const lineGeometry = new THREE.BufferGeometry();
+                        const linePositions = new Float32Array([x1, y1, z1, x2, y2, z2]);
+                        lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+                        
+                        const lineMaterial = new THREE.LineBasicMaterial({
+                            color: 0x3a7bd5,
+                            transparent: true,
+                            opacity: 0.15
+                        });
+                        
+                        const line = new THREE.Line(lineGeometry, lineMaterial);
+                        linesGroup.add(line);
+                    }
+                }
+            }
+            scene.add(linesGroup);
+            
+            // Add subtle gradient circles
+            const circleGeometry = new THREE.RingGeometry(1.5, 1.55, 64);
+            const circleMaterial = new THREE.MeshBasicMaterial({
+                color: 0x4a90d9,
+                transparent: true,
+                opacity: 0.1,
+                side: THREE.DoubleSide
+            });
+            
+            const circle1 = new THREE.Mesh(circleGeometry, circleMaterial);
+            circle1.position.set(-3, 1, -4);
+            scene.add(circle1);
+            
+            const circle2 = new THREE.Mesh(circleGeometry.clone(), circleMaterial.clone());
+            circle2.position.set(3, -1, -5);
+            circle2.scale.set(1.5, 1.5, 1);
+            scene.add(circle2);
+            
+            camera.position.z = 4;
+            
+            // Subtle mouse interaction
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            });
+            
+            // Smooth animation
+            const clock = new THREE.Clock();
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                const elapsedTime = clock.getElapsedTime();
+                
+                // Very subtle rotation
+                nodesMesh.rotation.y = elapsedTime * 0.02;
+                nodesMesh.rotation.x = Math.sin(elapsedTime * 0.1) * 0.05;
+                
+                linesGroup.rotation.y = elapsedTime * 0.015;
+                linesGroup.rotation.x = Math.sin(elapsedTime * 0.1) * 0.03;
+                
+                // Subtle mouse influence
+                nodesMesh.rotation.y += mouseX * 0.02;
+                nodesMesh.rotation.x += mouseY * 0.02;
+                
+                // Rotate circles slowly
+                circle1.rotation.z = elapsedTime * 0.1;
+                circle2.rotation.z = -elapsedTime * 0.08;
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        })();
+
+        // Navbar Scroll Behavior
+        const floatingNav = document.getElementById('floating-navbar');
+        const stickyNav = document.getElementById('sticky-navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > 200) {
+                // Hide floating nav, show sticky nav
+                floatingNav.classList.add('scrolled');
+                stickyNav.classList.add('visible');
+            } else {
+                // Show floating nav, hide sticky nav
+                floatingNav.classList.remove('scrolled');
+                stickyNav.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        };
+
+        // Trigger counter animation when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoader = document.getElementById('btn-loader');
+        const successModal = document.getElementById('success-modal');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            btnText.textContent = 'Sending...';
+            btnLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+const name = document.getElementById('contact-name').value;
+const email = document.getElementById('contact-email').value;
+const phone = document.getElementById('contact-phone').value;
+const message = document.getElementById('contact-message').value;
+
+            
+            const formattedBody = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📩 NEW WEBSITE INQUIRY - LUMIN CONSULTANCY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Hello Team,
+
+You have received a new inquiry from the Lumin Consultancy Website Contact Form.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧑 CLIENT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: ${name}
+Email: ${email}
+Mobile : ${phone}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💬 MESSAGE FROM CLIENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📎 ADDITIONAL INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This message was submitted through your website contact form.
+Please review and respond to the client at your earliest convenience.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Lumin Consultancy | Accreditation & Quality Excellence
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/ceo@luminconsultancy.in', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+    _subject: '📩 New Website Inquiry – Lumin Consultancy',
+    name: name,
+    email: email,
+    phone: phone,
+    _template: 'table',
+    message: formattedBody
+})
+
+                });
+
+                const result = await response.json();
+
+                btnText.textContent = 'Send Message';
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+
+                if (result.success) {
+                    contactForm.reset();
+                    successModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    alert('Message sent! We will contact you soon.');
+                    contactForm.reset();
+                }
+            } catch (error) {
+                btnText.textContent = 'Send Message';
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                
+                contactForm.reset();
+                successModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        function closeModal() {
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !successModal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
+            menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
+            lucide.createIcons();
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
